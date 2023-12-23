@@ -71,7 +71,7 @@ async def predict(sample: Sample):
     if pred[0] == 0:
         return 'Salary less or equal than 50K'
     else:
-        return 'Salary higher thn 50K'
+        return 'Salary higher than 50K'
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
