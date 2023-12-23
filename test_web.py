@@ -1,7 +1,7 @@
 import requests
 
 def test_main_route():
-    response = requests.get("http://127.0.0.1:8000/")
+    response = requests.get("https://proy-final-4.onrender.com/")
     assert response.status_code == 200
     assert response.text == '"Welcome"'
 
@@ -25,7 +25,7 @@ def test_prediction_valid_data_higher_than_50K():
         "hours_per_week": 45,
         "native_country": "United-States"
     }
-    response = requests.post("http://127.0.0.1:8000/", json=sample_data)
+    response = requests.post("https://proy-final-4.onrender.com/", json=sample_data)
 
 
     assert response.status_code == 200
@@ -49,7 +49,7 @@ def test_prediction_salary_less_than_50K():
         "hours_per_week": 40,
         "native_country": "United-States"
     }
-    response = requests.post("http://127.0.0.1:8000/", json=sample_data)
+    response = requests.post("https://proy-final-4.onrender.com/", json=sample_data)
     assert response.status_code == 200
     assert response.text == '"Salary less or equal than 50K"'
 
@@ -57,5 +57,5 @@ def test_prediction_incomplete_data():
     incomplete_data = {
         "age": 50
     }
-    response = requests.post("http://127.0.0.1:8000/", json=incomplete_data)
+    response = requests.post("https://proy-final-4.onrender.com/", json=incomplete_data)
     assert response.status_code == 500
